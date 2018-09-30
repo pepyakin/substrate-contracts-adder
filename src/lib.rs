@@ -1,5 +1,4 @@
 #![feature(alloc_error_handler)]
-#![feature(panic_handler)]
 #![feature(core_intrinsics)]
 #![feature(alloc)]
 
@@ -61,4 +60,9 @@ pub extern "C" fn call() {
             ext::return_(&raw_counter);
         }
     }
+}
+
+// We need to define `deploy` function, so the wasm-build will produce a constructor binary.
+#[no_mangle]
+pub extern "C" fn deploy() {
 }
